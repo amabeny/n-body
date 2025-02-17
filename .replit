@@ -1,2 +1,8 @@
+run = "./mergesort 10000"
+compile = "make"
 [nix]
 channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "./mergesort 10000"]
+build = ["sh", "-c", "make"]
