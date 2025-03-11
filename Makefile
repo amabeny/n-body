@@ -1,25 +1,11 @@
-# Compiler
 CXX = g++
-CXXFLAGS = -Wall -O2 -std=c++17
+CXXFLAGS = -std=c++11 -O2
 
-# Target executable
-TARGET = mergesort
+TARGET = nbody
+SRC = n_body_simulation.cpp
 
-# Source files
-SRCS = mergesort.cpp
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
-# Object files
-OBJS = $(SRCS:.cpp=.o)
-
-# Default rule: build the executable
-all: $(TARGET)
-
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-# Clean rule: removes compiled files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGET) output.tsv
